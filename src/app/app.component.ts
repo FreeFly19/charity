@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  products = [
+    {name: 'Product 1',
+      startAmount: '12',
+      info: 'info',
+      town: 'Cherkassy'
+  },
+    {name: 'Product 2',
+      startAmount: '2',
+      info: 'smth',
+      town: 'Cherkassy'
+    }
+  ];
 }
