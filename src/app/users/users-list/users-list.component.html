@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let user of users | filter: filterText" (click)="selectUser(user)">
+    {{user.firstName}}
+  </li>
+</ul>
+<div>
+  <input type="text" name="name" [(ngModel)]="filterText">
+</div>
+<div *ngIf="selectedUser">
+  <user-detail [user]="selectedUser">  </user-detail>
+</div>
+

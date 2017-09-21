@@ -1,9 +1,25 @@
+<h3> Product filter </h3>
+<div>
+  <select class="form-control"
+          [value]="pipeFilter"
+          (input)="pipeFilter = $event.target.value">
+    <option value="">--- Select ---</option>
+    <option value="c1">c1</option>
+    <option value="c2">c2</option>
+    <option value="c3">c3</option>
+  </select>
+</div>
 <ul>
-  <li *ngFor="let product of products" (click)="selectProduct(product)" [class.selected]="isSelected(product)">
-    Name: {{product.name}}
-  </li>
+  <li *ngFor="let product of products | filterProducts: pipeFilter">{{product.name}}</li>
 </ul>
 
+<!--<ul>-->
+  <!--<li *ngFor="let product of products | filterProducts: pipeFilter" (click)="selectProduct(product)" [class.selected]="isSelected(product)">-->
+    <!--Name: {{product.name}}-->
+  <!--</li>-->
+<!--</ul>-->
+
 <div *ngIf="productSelected">
-  <product-detail [product]="productSelected"> </product-detail>
+  <product-detail [product]="productSelected"></product-detail>
 </div>
+

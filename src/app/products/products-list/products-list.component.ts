@@ -10,7 +10,9 @@ export class ProductsListComponent {
   @Input() products;
   select = new EventEmitter();
   productSelected: any;
-
+  pipeFilter = '';
+  // changeFilterData:any[] = [];
+  // pipeFilterData:any[] =  [];
 
   isSelected(product): boolean {
     return this.productSelected === product;
