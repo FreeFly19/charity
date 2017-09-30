@@ -1,0 +1,7 @@
+<section>
+  <div> {{ (user | async)?.email }}</div>
+  <div id="sign-in-panel">
+    <button *ngIf="user" (click)="loginWithGoogle()">Login</button>
+    <button *ngIf="user" (click)="logout()">Logout</button>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+{
+  "name": "Give up for Charity",
+  "short_name": "Give up",
+  "start_url": ".",
+  "display": "standalone",
+  "description": "App for charity",
+  "related_applications": [{
+    "platform": "web"
+  }],
+  "gcm_sender_id": "103953800507"
+}

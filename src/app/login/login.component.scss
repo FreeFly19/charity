@@ -1,0 +1,21 @@
+@import '../../styles.scss';
+
+section {
+  margin: 23% 22%;
+}
+
+h1 {
+  @extend .card-header;
+}
+
+#sign-in-panel {
+  @extend .form-group;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-outline-primary;
+  @extend .btn-lg;
+  width: 100%;
+  margin: 1% 0;
+}

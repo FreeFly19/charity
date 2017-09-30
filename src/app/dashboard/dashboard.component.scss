@@ -1,0 +1,51 @@
+@import '../../styles.scss';
+
+
+#products-list {
+  @extend .col-4;
+}
+
+#user-list {
+  @extend .col-8;
+}
+
+nav {
+  min-height: 220px;
+  background: #CEECF5;
+  font-size: 24px;
+  margin-bottom: 2%;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+form button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+h1 {
+  @extend .navbar-brand;
+  font-size: 44px;
+  text-align: center;
+  margin: 0 6%;
+}
+
+#sign-out {
+  float: right;
+}
+
+#sign-out button {
+  @extend .btn;
+  @extend .btn-link;
+  color: white;
+}
+
+#logo{
+  width: 15%;
+  //float: left;
+  margin: 2% 2%;
+}
+

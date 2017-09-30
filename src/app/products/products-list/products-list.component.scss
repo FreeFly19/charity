@@ -1,0 +1,54 @@
+@import '../../../styles.scss';
+
+h2 {
+  font-size: 28px;
+  color: green;
+}
+
+ul {
+@extend .list-group;
+}
+
+ul>li {
+@extend .list-group-item;
+}
+
+li {
+  cursor: pointer;
+}
+
+li.selected {
+@extend .active
+}
+input[type="text"] {
+@extend .form-control;
+}
+
+button {
+@extend .btn;
+@extend .btn-primary;
+}
+
+form button {
+  margin-top: 10px;
+  width: 20%;
+@extend .btn;
+@extend .btn-primary;
+}
+
+.products-list{
+  width: 80%;
+  list-style-type: none;
+  border: 1px solid lightskyblue;
+  border-radius: 10%;
+  margin: 1% auto;
+  text-align: center;
+}
+.products {
+  border: 1px solid lightgray;
+  border-radius: 3%;
+  padding: 2%;
+  margin: 2% 35%;
+  text-align: center;
+  width: 64%;
+}

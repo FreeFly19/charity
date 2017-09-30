@@ -1,2 +1,11 @@
-<h1> {{product.name}} </h1>
-<h1> {{product.price}} </h1>
+<div *ngFor="let product of products" id="pr-d">
+  <ul *ngIf="product.name === id" id="product-detail">
+    <li> <span> Name: </span> {{product.name}} </li>
+    <li> <span> Info: </span> {{product.description}}</li>
+    <li> <span> Price: </span> {{product.price}}</li>
+    <li> <span> City: </span> {{product.city}}</li>
+    <p id="timer" [style.color]="data ? 'red' : null">  {{text}} </p>
+
+  </ul>
+
+</div>

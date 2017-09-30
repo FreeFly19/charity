@@ -1,25 +1,41 @@
-<h3> Product filter </h3>
-<div>
+<div class="products">
+
   <select class="form-control"
           [value]="pipeFilter"
           (input)="pipeFilter = $event.target.value">
     <option value="">--- Select ---</option>
-    <option value="c1">c1</option>
-    <option value="c2">c2</option>
-    <option value="c3">c3</option>
+    <option value="Техника">Техника</option>
+    <option value="Мебель">Мебель</option>
+    <option value="Игрушки">Игрушки</option>
   </select>
+
+  <h2>New Product</h2>
+  <form (submit)="addProduct()">
+    <input type="text" name="name" [(ngModel)]="productName" placeholder="Product name"><br>
+    <input type="text" name="description" [(ngModel)]="productDesc" placeholder="Product description"><br>
+    <input type="text" name="price" [(ngModel)]="productPrice" placeholder="Price"><br>
+    <input type="text" name="city" [(ngModel)]="productCity" placeholder="Your city"><br>
+    <select name="category" id="selCat" [(ngModel)]="selCat">
+      <option *ngFor="let catNumb of setCategory" value="{{catNumb}}" class="form-control"
+              [value]="pipeFilter"
+              (input)="pipeFilter = $event.target.value">
+        {{catNumb}}
+      </option>
+    </select>
+    <button type="submit">Add product</button>
+  </form>
+
+  <h2>Products</h2>
+  <ul >
+    <li *ngFor="let product of products | filterProducts: pipeFilter"   [routerLink]="['/dashboard', product.name]" [routerLinkActive]="['selected']" class="products-list">
+
+    {{product?.name}}
+    {{product?.description}} -- {{product?.category}}<br>
+    {{product?.city}} -- {{product?.price}}<br>
+    </li>
+  </ul>
 </div>
-<ul>
-  <li *ngFor="let product of products | filterProducts: pipeFilter">{{product.name}}</li>
-</ul>
 
-<!--<ul>-->
-  <!--<li *ngFor="let product of products | filterProducts: pipeFilter" (click)="selectProduct(product)" [class.selected]="isSelected(product)">-->
-    <!--Name: {{product.name}}-->
-  <!--</li>-->
-<!--</ul>-->
-
-<div *ngIf="productSelected">
-  <product-detail [product]="productSelected"></product-detail>
+<div *ngIf="selectedProduct">
+  <app-product-detail></app-product-detail>
 </div>
-

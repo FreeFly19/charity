@@ -1,0 +1,51 @@
+@import '../../../styles.scss';
+
+h2 {
+  font-size: 28px;
+  color: green;
+}
+
+ul {
+  list-style-type: none;
+
+@extend .list-group;
+}
+
+ul>li {
+@extend .list-group-item;
+}
+
+li {
+  cursor: pointer;
+}
+
+li.selected {
+@extend .active
+}
+input[type="text"] {
+@extend .form-control;
+}
+
+button {
+@extend .btn;
+@extend .btn-primary;
+}
+
+form button {
+  margin-top: 10px;
+  width: 40%;
+@extend .btn;
+@extend .btn-primary;
+}
+
+.form-control{
+  width: 40%;
+}
+
+.users {
+  border: 1px solid lightgray;
+  border-radius: 3%;
+  padding: 2%;
+  float: left;
+  @extend .col-6;
+}

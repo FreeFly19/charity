@@ -1,0 +1,22 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+h2 {
+  font-size: 28px;
+  color: lightgray;
+}
+
+ul {
+  @extend .list-group;
+}
+
+ul>li {
+  @extend .list-group-item;
+}
+
+li {
+  cursor: pointer;
+}
+
+li.selected {
+  @extend .active
+}
