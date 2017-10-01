@@ -1,14 +1,5 @@
 <div class="products">
 
-  <select class="form-control"
-          [value]="pipeFilter"
-          (input)="pipeFilter = $event.target.value">
-    <option value="">--- Select ---</option>
-    <option value="Техника">Техника</option>
-    <option value="Мебель">Мебель</option>
-    <option value="Игрушки">Игрушки</option>
-  </select>
-
   <h2>New Product</h2>
   <form (submit)="addProduct()">
     <input type="text" name="name" [(ngModel)]="productName" placeholder="Product name"><br>
@@ -25,13 +16,25 @@
     <button type="submit">Add product</button>
   </form>
 
+  <br>
+  <h2>Product`s filter</h2>
+
+  <select class="form-control"
+          [value]="pipeFilter"
+          (input)="pipeFilter = $event.target.value">
+    <option *ngFor="let catNumb of setCategory" value="{{catNumb}}">{{catNumb}}</option>
+  </select>
+
+  <br>
   <h2>Products</h2>
   <ul >
-    <li *ngFor="let product of products | filterProducts: pipeFilter"   [routerLink]="['/dashboard', product.name]" [routerLinkActive]="['selected']" class="products-list">
+    <li *ngFor="let product of products | filterProducts: pipeFilter"
+        [routerLink]="['/dashboard', product.$key]"
+        [routerLinkActive]="['selected']" class="products-list">
 
-    {{product?.name}}
-    {{product?.description}} -- {{product?.category}}<br>
-    {{product?.city}} -- {{product?.price}}<br>
+      {{product?.name}}
+      {{product?.description}} -- {{product?.category}}<br>
+      {{product?.city}} -- {{product?.price}}<br>
     </li>
   </ul>
 </div>
