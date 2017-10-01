@@ -1,0 +1,23 @@
+[33mcommit b1a6dc1811590530e2037b67cd760f3f0101b56f[m
+Author: Mary <marysaphpir@gmail.com>
+Date:   Sat Sep 30 21:38:19 2017 +0300
+
+    fix bugs with style
+
+[33mcommit 53ad42ed188fdcc785b96db891199db008b0c17d[m
+Author: Mary <marysaphpir@gmail.com>
+Date:   Thu Sep 21 09:44:32 2017 +0300
+
+    add filter and search
+
+[33mcommit 32890da1c3bc89f370fbf666da3e9391a9fd9b17[m
+Author: Mary <marysaphpir@gmail.com>
+Date:   Wed Sep 20 00:03:52 2017 +0300
+
+    add product list and product detail
+
+[33mcommit 750b59a1637613bebfd7e19f7894dd3dad3f8419[m
+Author: Angular CLI <angular-cli@angular.io>
+Date:   Tue Sep 19 23:21:45 2017 +0300
+
+    chore: initial commit from @angular/cli
