@@ -3,8 +3,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 
 
 interface User {
-  name: string;
-  surname: string;
+  displayName: string;
   email: string;
   password: string;
   city: string;
@@ -25,28 +24,24 @@ export class UserListComponent {
     this.userList.subscribe(users => this.users = users);
   }
   userList: FirebaseListObservable<User[]>;
-  filterText:any;
+  filterText: any;
 
   users: User[] = [];
-  userName;
-  userSurname;
+  userDisplayName;
   userEmail;
   userPassword;
   userCity;
 
   addUser() {
     this.userList.push({
-      name: this.userName,
-      surname: this.userSurname,
+      displayName: this.userDisplayName,
       email: this.userEmail,
       password: this.userPassword,
       city: this.userCity
     });
-    this.userName = '';
-    this.userSurname = '';
+    this.userDisplayName = '';
     this.userEmail = '';
     this.userPassword = '';
     this.userCity = '';
   }
-
 }
