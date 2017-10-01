@@ -3,11 +3,14 @@
 
 #products-list {
   @extend .col-12;
+  z-index: 1;
 }
 
 #user-list {
   @extend .col-8;
+  z-index: 2;
 }
+
 
 nav {
   min-height: 220px;
