@@ -22,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
   private tomorrow: Date;
 
   ngOnInit() {
-    setInterval(() => {
+    let alertTimerId = setInterval(() => {
       this.tomorrow = new Date(1506062336529);
       this.tomorrow.setDate(this.tomorrow.getDate() + 1);
       let now = new Date().getTime();
@@ -35,8 +35,6 @@ export class ProductDetailComponent implements OnInit {
         this.text = 'lot is sold';
         return this.data = true;
       } else {
-        console.log(this.tomorrow);
-        console.log(now);
         this.text = `${hours}:${minutes}:${seconds}`;
         return this.data = false;
       }
@@ -48,6 +46,8 @@ export class ProductDetailComponent implements OnInit {
       .switchMap(id => this.bidService.db.object(`/products/${id}`)).subscribe(product => {
       this.bidService.product = product;
       this.bidService.newBid = this.bidService.product.price;
+      this.bidService.bidProductList = this.bidService.db.list(`/products/${this.bidService.id}/bid`);
+      this.bidService.bidProductList.subscribe(bid => this.bidService.bidsProduct = bid);
     });
   }
 }
