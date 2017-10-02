@@ -16,6 +16,6 @@
   <!--</form>-->
   <h2>Users</h2>
   <ul>
-    <li *ngFor="let user of users | filter: filterText"> Name: {{user.name + ' ' + user.surname}}; City: {{user.city}} </li>
+    <li *ngFor="let user of users | filter: filterText"> Name: {{user.displayName}}; City: {{user.city}} </li>
   </ul>
 </div>

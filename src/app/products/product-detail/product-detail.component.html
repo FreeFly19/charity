@@ -1,11 +1,12 @@
-<div *ngFor="let product of products" id="pr-d">
-  <ul *ngIf="product.name === id" id="product-detail">
-    <li> <span> Name: </span> {{product.name}} </li>
-    <li> <span> Info: </span> {{product.description}}</li>
-    <li> <span> Price: </span> {{product.price}}</li>
-    <li> <span> City: </span> {{product.city}}</li>
-    <p id="timer" [style.color]="data ? 'red' : null">  {{text}} </p>
+<ul id="product-detail" *ngIf="bidService.product">
+  <li> <span> Name: </span> {{bidService.product.name}} </li>
+  <li> <span> Info: </span> {{bidService.product.description}}</li>
+  <li> <span> Price: </span> {{bidService.product.price}}</li>
+  <li> <span> City: </span> {{bidService.product.city}}</li>
+  <p id="timer" [style.color]="data ? 'red' : null">  {{text}} </p>
 
-  </ul>
-
-</div>
+  <form (submit)="bidService.setNewBid()" >
+    <input type="text" name="newBid" [(ngModel)]="bidService.newBid">
+    <button type="submit" name="newBid">Set new bid </button>
+  </form>
+</ul>

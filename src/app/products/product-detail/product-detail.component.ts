@@ -1,49 +1,28 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Component,  OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
-interface Product {
-  name: string;
-  description: string;
-  price: number;
-  city: string;
-  category: string;
-  time: Date;
-}
-
+import {BidService} from './bid.service';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  styleUrls: ['./product-detail.component.scss'],
+  providers: [BidService]
 })
 
 export class ProductDetailComponent implements OnInit {
-  text: string;
 
-  constructor(private route: ActivatedRoute, private db: AngularFireDatabase) {
-    db.list('/products');
-    this.productList = db.list('/products');
-    this.productList.subscribe(products => this.products = products);
+  constructor(private route: ActivatedRoute,
+              public bidService: BidService) {
   }
 
-
-  id;
+  text: string;
   data;
-
-  products: Product[] = [];
-  productList: FirebaseListObservable<Product[]>;
-  selectedProduct;
   private tomorrow: Date;
 
   ngOnInit() {
-
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      console.log('id' + this.id);
-    });
-    setInterval(() => {
+    let alertTimerId = setInterval(() => {
       this.tomorrow = new Date(1506062336529);
       this.tomorrow.setDate(this.tomorrow.getDate() + 1);
       let now = new Date().getTime();
@@ -56,12 +35,19 @@ export class ProductDetailComponent implements OnInit {
         this.text = 'lot is sold';
         return this.data = true;
       } else {
-        console.log(this.tomorrow);
-        console.log(now);
         this.text = `${hours}:${minutes}:${seconds}`;
         return this.data = false;
       }
     }, 1000);
-  }
 
+    this.route.paramMap
+      .map(paramMap => paramMap.get('id'))
+      .do(id => this.bidService.id = id)
+      .switchMap(id => this.bidService.db.object(`/products/${id}`)).subscribe(product => {
+      this.bidService.product = product;
+      this.bidService.newBid = this.bidService.product.price;
+      this.bidService.bidProductList = this.bidService.db.list(`/products/${this.bidService.id}/bid`);
+      this.bidService.bidProductList.subscribe(bid => this.bidService.bidsProduct = bid);
+    });
+  }
 }

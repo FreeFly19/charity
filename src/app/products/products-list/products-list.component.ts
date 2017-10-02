@@ -1,25 +1,17 @@
 import {Component} from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
+import { Product } from '../product';
 
 var pipeFilter;
 pipeFilter;
-
-
-interface Product {
-  name: string;
-  description: string;
-  price: number;
-  city: string;
-  category: string;
-  time: Date;
-}
 
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.scss']
 })
+
 export class ProductsListComponent {
   _router: any;
   selectedProduct: Product;
@@ -35,6 +27,7 @@ export class ProductsListComponent {
   products: Product[] = [];
 
   setCategory = [
+    '',
     'Техника',
     'Мебель',
     'Одежда',
@@ -46,7 +39,6 @@ export class ProductsListComponent {
   productPrice;
   productCity;
   selCat = this.setCategory[0];
-  productSelected;
 
   onSelect(prod: Product): void {
     this.selectedProduct = prod;
