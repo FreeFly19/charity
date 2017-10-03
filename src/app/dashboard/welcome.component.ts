@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   selector: 'welcome',
   template: ` <a href="/" id="logo">Choose option</a>
                 <ul id="menu">
-                  <li><a href="/"><span>Show products</span></a></li>
+                  <li> <a routerLink="/dashboard/bids-list"> <span>Show products</span> </a> </li>
                   <li><a href="/"><span>Show programs</span></a></li>
                 </ul>
   `,

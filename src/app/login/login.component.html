@@ -1,7 +1,11 @@
+<div id="navi">
 <section>
   <div> {{ (user | async)?.email }}</div>
   <div id="sign-in-panel">
     <button *ngIf="user" (click)="loginWithGoogle()">Login</button>
-    <button *ngIf="user" (click)="logout()">Logout</button>
+    <button *ngIf="(user | async)?.email" (click)="logout()">Logout</button>
   </div>
 </section>
+
+</div>
+

@@ -39,7 +39,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'list', component: ProductsListComponent},
+      { path: 'bids-list', component: ProductsListComponent},
       { path: ':id', component: ProductDetailComponent }
     ]
   }

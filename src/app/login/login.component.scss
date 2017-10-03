@@ -1,11 +1,11 @@
 @import '../../styles.scss';
 
-section {
-  margin: 23% 22%;
-}
-
-h1 {
-  @extend .card-header;
+#navi{
+  width: 100%;
+  height: 960px;
+  background: url("../img/login_logo2.jpg") center top no-repeat;
+  margin: 0;
+  padding: 0;
 }
 
 #sign-in-panel {
@@ -17,5 +17,5 @@ button {
   @extend .btn-outline-primary;
   @extend .btn-lg;
   width: 100%;
-  margin: 1% 0;
+  margin: 40% 0;
 }

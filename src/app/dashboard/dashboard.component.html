@@ -10,16 +10,13 @@
 
   <div id="sign-out">
     {{currentUser?.email}}
-    <button>Sign out</button>
+    <button *ngIf="!currentUser" (click)="login()">Sign in</button>
+    <button *ngIf="currentUser" (click)="logout()">Sign out</button>
   </div>
 </nav>
 
 <section id="user-list">
   <app-user-list></app-user-list>
-</section>
-
-<section id="products-list">
-  <app-products-list></app-products-list>
 </section>
 
 <div id="child-outlet">
