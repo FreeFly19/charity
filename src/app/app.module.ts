@@ -19,6 +19,7 @@ import {UserService} from './user.service';
 import {AuthGuard} from './login/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {WelcomeComponent} from './dashboard/welcome.component';
+import { UserDetailComponent } from './users/user-detail/user-detail/user-detail.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDbsw7ifwF99TPx5wF0-gKB7iKoRynaFAU',
@@ -39,8 +40,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'bids-list', component: ProductsListComponent},
-      { path: ':id', component: ProductDetailComponent }
+      { path: 'lot-list', component: ProductsListComponent },
+      { path: 'lot-list/:id', component: ProductDetailComponent },
+      { path: ':id', component: UserDetailComponent }
     ]
   }
 ];
@@ -55,7 +57,8 @@ const routes: Routes = [
     FilterArrayPipe,
     FilterProducts,
     DashboardComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    UserDetailComponent
 
   ],
   imports: [

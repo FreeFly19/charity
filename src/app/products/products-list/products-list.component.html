@@ -27,18 +27,13 @@
 
   <br>
   <h2>Products</h2>
-  <ul >
+  <ul>
     <li *ngFor="let product of products | filterProducts: pipeFilter"
-        [routerLink]="['/dashboard', product.$key]"
+        [routerLink]="['/dashboard/lot-list', product.$key]"
         [routerLinkActive]="['selected']" class="products-list">
-
       {{product?.name}}
       {{product?.description}} -- {{product?.category}}<br>
       {{product?.city}} -- {{product?.price}}<br>
     </li>
   </ul>
-</div>
-
-<div *ngIf="selectedProduct">
-  <app-product-detail></app-product-detail>
 </div>

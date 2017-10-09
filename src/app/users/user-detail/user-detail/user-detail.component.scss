@@ -1,0 +1,35 @@
+@import '../../../../styles.scss';
+
+h2 {
+  font-size: 28px;
+  color: green;
+}
+
+ul {
+  @extend .list-group;
+}
+
+ul>li {
+  font-size: 28px;
+  color: darkviolet;
+  @extend .list-group-item;
+}
+
+h1{
+  font-size: 30px;
+}
+
+ul > li > span {
+  color: black;
+}
+
+#user-detail {
+  width: 60%;
+  list-style-type: none;
+  border: 1px solid gray;
+  border-radius: 2%;
+  padding: 4%;
+  margin: 5% 35%;
+  text-align: center;
+  background: #f3f3f3;
+}

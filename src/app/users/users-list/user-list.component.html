@@ -1,21 +1,15 @@
-
 <div class="users">
   <div>
     <h1> Find user </h1>
     <input type="text" name="name" [(ngModel)]="filterText">
   </div>
 
-  <!--<h2>New users</h2>-->
-  <!--<form (submit)="addUser()">-->
-    <!--<input type="text" name="userName" [(ngModel)]="userName" placeholder="User name"><br>-->
-    <!--<input type="text" name="userSurname" [(ngModel)]="userSurname" placeholder="User surname"><br>-->
-    <!--<input type="email" name="Email" [(ngModel)]="userEmail" placeholder="Example@mail.com"><br>-->
-    <!--<input type="password" name="userPassword" [(ngModel)]="userPassword" placeholder="Password"><br>-->
-    <!--<input type="text" name="userCity" [(ngModel)]="userCity" placeholder="City"><br>-->
-    <!--<button type="submit">Add user</button>-->
-  <!--</form>-->
   <h2>Users</h2>
   <ul>
-    <li *ngFor="let user of users | filter: filterText"> Name: {{user.displayName}}; City: {{user.city}} </li>
+    <li *ngFor="let user of users | filter: filterText"
+        [routerLink]="['/dashboard/', user.$key]"
+        [routerLinkActive]="['selected']" class="user-list">
+      Name: {{user.displayName}}
+    </li>
   </ul>
 </div>
