@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
-
-interface User {
-  displayName: string;
-  email: string;
-  password: string;
-  city: string;
-  balance: number;
-  numProducts: number;
-}
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-list',

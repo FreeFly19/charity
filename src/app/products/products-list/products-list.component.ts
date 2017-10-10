@@ -13,13 +13,10 @@ pipeFilter;
 })
 
 export class ProductsListComponent {
-  _router: any;
-  selectedProduct: Product;
   pipeFilter: any;
   productList: FirebaseListObservable<Product[]>;
 
   constructor(private db: AngularFireDatabase) {
-    db.list('/products');
     this.productList = db.list('/products');
     this.productList.subscribe(products => this.products = products);
   }
@@ -39,11 +36,6 @@ export class ProductsListComponent {
   productPrice;
   productCity;
   selCat = this.setCategory[0];
-
-  onSelect(prod: Product): void {
-    this.selectedProduct = prod;
-    this._router.navigate(['/product', prod.name]);
-  }
 
   addProduct() {
     this.productList.push({

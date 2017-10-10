@@ -1,0 +1,6 @@
+<ul id="user-detail" *ngIf="user">
+  <li><span> Name:  </span>{{user.displayName}}</li>
+  <li><span> Email: </span>{{user.email}}</li>
+  <li><span> City: </span>{{user.city}}</li>
+  <li *ngIf="this.currentUser.id === this.id"><span> Balanse: </span> {{user.balance}}</li>
+</ul>
