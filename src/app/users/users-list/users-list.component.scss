@@ -57,3 +57,12 @@ form button {
   float: left;
   @extend .col-6;
 }
+
+.user-list{
+  width: 80%;
+  list-style-type: none;
+  border: 1px solid lightskyblue;
+  border-radius: 10%;
+  margin: 1% auto;
+  text-align: center;
+}
