@@ -1,6 +1,23 @@
 <div class="products">
 
   <h2>New Product</h2>
+  <form id="formUploadPhoto">
+    <span>Photo</span>
+    <input type="file" (change)="detectFiles($event)">
+    <button
+            [disabled]="!selectedFiles"
+            (click)="uploadPhoto()">
+      Upload Single
+    </button>
+    <div *ngIf="upSvc.currentUpload">
+      <br>
+      <div class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': upSvc.currentUpload?.progress + '%' }"></div>
+      </div>
+      Progress: {{upSvc.currentUpload?.name}} | {{upSvc.currentUpload?.progress}}% Complete<br>
+    </div>
+  </form>
+
   <form (submit)="addProduct()">
     <input type="text" name="name" [(ngModel)]="productName" placeholder="Product name"><br>
     <input type="text" name="description" [(ngModel)]="productDesc" placeholder="Product description"><br>
