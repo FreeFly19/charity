@@ -20,8 +20,7 @@ export class UserService {
 
   constructor(private afAuth: AngularFireAuth,
               public afDatabase: AngularFireDatabase,
-              private router: Router,
-              private route: ActivatedRoute,) {
+              private router: Router) {
     afAuth.authState
       .flatMap(user => user ? this.getById(UserService.emailToId(user.email)) : Observable.of(null))
       .subscribe(this.currentUser);
@@ -81,7 +80,10 @@ export class UserService {
     return {
       id: userSnapshot.$key,
       displayName: userSnapshot.displayName,
-      email: userSnapshot.$key.replace('DOT', '.').replace('AT', '@')
+      email: userSnapshot.$key.replace('DOT', '.').replace('AT', '@'),
+      city: '',
+      password: '',
+      balance: 0
     };
   }
 
