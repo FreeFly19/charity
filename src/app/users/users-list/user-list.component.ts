@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 import { User } from '../user';
@@ -18,21 +18,4 @@ export class UserListComponent {
   filterText: any;
 
   users: User[] = [];
-  userDisplayName;
-  userEmail;
-  userPassword;
-  userCity;
-
-  addUser() {
-    this.userList.push({
-      displayName: this.userDisplayName,
-      email: this.userEmail,
-      password: this.userPassword,
-      city: this.userCity
-    });
-    this.userDisplayName = '';
-    this.userEmail = '';
-    this.userPassword = '';
-    this.userCity = '';
-  }
 }
