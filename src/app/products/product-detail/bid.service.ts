@@ -19,6 +19,7 @@ export class BidService {
       currentUser => this.currentUser = currentUser);
     this.bidList = db.list('/bids');
     this.bidList.subscribe(bids => this.bids = bids);
+
     this.bidUserList = this.db.list(`/users/${this.currentUser.id}/bid`);
     this.bidUserList.subscribe(bid => this.bidsUser = bid);
   }
@@ -31,6 +32,7 @@ export class BidService {
   bidsUser: BidUser[] = [];
   bidId;
   product: Product;
+  user: User;
 
   setNewBid () {
     if (Number(this.product.price) < Number(this.newBid)) {

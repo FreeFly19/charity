@@ -16,6 +16,11 @@
   <!--</form>-->
   <h2>Users</h2>
   <ul>
-    <li *ngFor="let user of users | filter: filterText"> Name: {{user.displayName}}; City: {{user.city}} </li>
+    <li *ngFor="let user of users | filter: filterText"
+        [routerLink]="['/dashboard/users', user.$key]"
+        [routerLinkActive]="['selected']" class="user-list">
+      Name: {{user.displayName}}; City: {{user.city}}
+    </li>
+
   </ul>
 </div>

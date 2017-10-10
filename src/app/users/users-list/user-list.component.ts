@@ -19,7 +19,6 @@ interface User {
 export class UserListComponent {
 
   constructor(private db: AngularFireDatabase) {
-    db.list('/users');
     this.userList = db.list('/users');
     this.userList.subscribe(users => this.users = users);
   }

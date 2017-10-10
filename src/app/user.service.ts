@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabase} from 'angularfire2/database';
 import * as firebase from 'firebase/app';
@@ -19,12 +19,15 @@ export class UserService {
   readonly currentUser: Subject<User> = new BehaviorSubject<User>(undefined);
 
   constructor(private afAuth: AngularFireAuth,
-              private afDatabase: AngularFireDatabase,
-              private router: Router) {
+              public afDatabase: AngularFireDatabase,
+              private router: Router,
+              private route: ActivatedRoute,) {
     afAuth.authState
       .flatMap(user => user ? this.getById(UserService.emailToId(user.email)) : Observable.of(null))
       .subscribe(this.currentUser);
   }
+  id;
+  user;
 
   signIn(): void {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
@@ -52,6 +55,17 @@ export class UserService {
       .update({displayName: user.displayName, email: afUser.email})
       .then(() => user);
   }
+
+  getContactById(contactId: string): Observable<User> {
+
+    return this.currentUser
+      .filter(curUser => !!curUser)
+      .flatMap(curUser => {
+        return this.afDatabase.object(`/users/${ this.id}`)
+      })
+      .map(UserService.toUserFromUserSnapshot);
+  }
+
 
   getById(userId: string): Observable<User> {
     return this.afDatabase
