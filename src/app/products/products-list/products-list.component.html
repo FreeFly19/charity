@@ -1,5 +1,5 @@
 <div class="products">
-
+<div id="newProd" *ngIf="showAddProduct">
   <h2>New Product</h2>
   <form id="formUploadPhoto">
     <span>Photo</span>
@@ -32,8 +32,10 @@
     </select>
     <button type="submit">Add product</button>
   </form>
-
+</div>
   <br>
+
+  <button id="addNewProd" (click)="show()"> {{text}} </button>
   <h2>Product`s filter</h2>
 
   <select class="form-control"
@@ -44,6 +46,7 @@
 
   <br>
   <h2>Products</h2>
+
   <ul>
     <li *ngFor="let product of products | filterProducts: pipeFilter"
         [routerLink]="['/dashboard/lot-list', product.$key]"

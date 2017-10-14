@@ -5,33 +5,59 @@ h2 {
   color: green;
 }
 
-ul {
-@extend .list-group;
-}
-
-ul>li {
-  font-size: 28px;
-  color: darkviolet;
-@extend .list-group-item;
-}
-
 h1{
   font-size: 30px;
 }
 
-ul > li > span {
-  color: black;
+//#product-detail {
+//  width: 60%;
+//  list-style-type: none;
+//  border: 1px solid gray;
+//  border-radius: 2%;
+//  padding: 4%;
+//  margin: 0 35%;
+//  text-align: center;
+//  background: #f3f3f3;
+//}
+
+img {
+  @extend .card-img-top;
 }
 
-#product-detail {
-  width: 60%;
-  list-style-type: none;
-  border: 1px solid gray;
-  border-radius: 2%;
-  padding: 4%;
-  margin: 5% 35%;
+#card {
+  @extend .card;
+  width: 53rem;
+  margin: 0 35%;
+}
+
+.card-block {
+  @extend .card-block;
+}
+
+.card-title {
+  @extend .card-title;
+}
+
+.card-text {
   text-align: center;
-  background: #f3f3f3;
+  @extend .card-title;
+}
+
+.list-group .list-group-flush{
+  @extend .list-group;
+  @extend .list-group-flush;
+}
+
+.list-group-item {
+  @extend .list-group-item;
+}
+
+.product-pic {
+  width: 40%;
+}
+
+.product-pic-large {
+  width: 100%;
 }
 
 #timer {

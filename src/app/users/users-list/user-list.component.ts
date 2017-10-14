@@ -18,4 +18,5 @@ export class UserListComponent {
   filterText: any;
 
   users: User[] = [];
+
 }

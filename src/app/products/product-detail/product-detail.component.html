@@ -1,12 +1,18 @@
-<ul id="product-detail" *ngIf="bidService.product">
-  <li> <span> Name: </span> {{bidService.product.name}} </li>
-  <li> <span> Info: </span> {{bidService.product.description}}</li>
-  <li> <span> Price: </span> {{bidService.product.price}}</li>
-  <li> <span> City: </span> {{bidService.product.city}}</li>
-  <p id="timer" [style.color]="data ? 'red' : null">  {{text}} </p>
-
-  <form (submit)="bidService.setNewBid()" >
-    <input type="text" name="newBid" [(ngModel)]="bidService.newBid">
-    <button type="submit" name="newBid">Set new bid </button>
-  </form>
-</ul>
+<div id="card" *ngIf="bidService.product">
+  <img src="{{bidService.product.photo.url}}" class="product-pic" (click)="makeBigger()" [class]="currentClass">
+  <div class="card-block">
+    <span class="card-title" [innerHTML]="bidService.product.name"> </span>
+    <span class="card-text" [innerHTML]="bidService.product.description"> </span>
+  </div>
+  <ul class="list-group list-group-flush">
+    <span> Price: </span>
+    <li class="list-group-item" [innerHTML]="bidService.product.price"></li>
+    <span> City: </span>
+    <li class="list-group-item" [innerHTML]="bidService.product.city"></li>
+  </ul>
+  <p id="timer" [style.color]="data ? 'red' : null"> {{text}} </p>
+    <form (submit)="bidService.setNewBid()">
+      <input type="text" name="newBid" [(ngModel)]="bidService.newBid">
+      <button type="submit" name="newBid">Set new bid</button>
+    </form>
+</div>

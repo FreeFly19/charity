@@ -1,14 +1,21 @@
 import {Component} from '@angular/core';
+import { UserService } from '../user.service';
+import { User } from '../user.model';
+import {Router} from '@angular/router';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
   selector: 'welcome',
-  template: ` <a href="/" id="logo">Choose option</a>
-                <ul id="menu">
-                  <li> <a routerLink="/dashboard/lot-list"> <span>Show bids</span> </a> </li>
-                  <li><a href="/"><span>Show programs</span></a></li>
-                </ul>
-  `,
+  templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
+  currentUser: User;
+
+  constructor( private userService: UserService) {
+    userService.currentUser.subscribe(currentUser => this.currentUser = currentUser);
+  }
+
+
+  path = `http://localhost:4200/#/dashboard/mariasampirATgmailDOTcom`;
 }

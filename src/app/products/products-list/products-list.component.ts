@@ -5,9 +5,6 @@ import { Product } from '../product';
 import {UploadService} from './uploads/upload.service';
 import {Upload} from './uploads/upload';
 
-var pipeFilter;
-pipeFilter;
-
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -42,6 +39,8 @@ export class ProductsListComponent {
   productCity;
   selCat = this.setCategory[0];
   newProductId: string;
+  showAddProduct = false;
+  text = 'Add product';
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -50,6 +49,11 @@ export class ProductsListComponent {
     let file = this.selectedFiles.item(0);
     this.upSvc.currentUpload = new Upload(file);
     this.upSvc.pushUpload(this.upSvc.currentUpload);
+  }
+
+  show() {
+    this.showAddProduct = !this.showAddProduct ;
+    this.showAddProduct ? this.text = 'Hide' : this.text = 'Add product';
   }
 
   addProduct() {

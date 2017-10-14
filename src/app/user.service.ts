@@ -55,17 +55,6 @@ export class UserService {
       .then(() => user);
   }
 
-  getContactById(contactId: string): Observable<User> {
-
-    return this.currentUser
-      .filter(curUser => !!curUser)
-      .flatMap(curUser => {
-        return this.afDatabase.object(`/users/${ this.id}`)
-      })
-      .map(UserService.toUserFromUserSnapshot);
-  }
-
-
   getById(userId: string): Observable<User> {
     return this.afDatabase
       .object(`/users/${userId}`)
@@ -81,13 +70,12 @@ export class UserService {
       id: userSnapshot.$key,
       displayName: userSnapshot.displayName,
       email: userSnapshot.$key.replace('DOT', '.').replace('AT', '@'),
-      city: '',
-      password: '',
-      balance: 0
+      // city: '',
+      // balance: 0
     };
   }
 
-  private navigateTo(path) {
+  navigateTo(path) {
     return () => this.router.navigate([path]);
   }
 }

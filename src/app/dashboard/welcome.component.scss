@@ -23,11 +23,11 @@
   border-bottom: 4px double #AAA;
   position: relative;
   text-align: center;
-  margin: 3% 0 0 40%;
+  margin: 3% 0 0 38%;
+  min-width: 57%;
 }
 #menu li {
   display: inline-block;
-  //min-width: 173px;
   margin: 0 3%;
   position: relative;
   -webkit-transform: skewy(-3deg);
@@ -65,8 +65,7 @@
     0 0 0px 3px #FFF inset;
 }
 #menu li:hover {
-  width: 263px;
-  //margin: 0 -5px;
+  width: 200px;
 }
 #menu a:hover {
   color: #d90075;

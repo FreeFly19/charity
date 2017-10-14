@@ -2,10 +2,23 @@
 <section>
   <div> {{ (user | async)?.email }}</div>
   <div id="sign-in-panel">
-    <button *ngIf="user" (click)="loginWithGoogle()">Login</button>
+    <button *ngIf="user" (click)="loginWithGoogle()">Login with google</button>
+    <button *ngIf="user" (click)="addUser()">Registrate</button>
     <button *ngIf="(user | async)?.email" (click)="logout()">Logout</button>
   </div>
 </section>
+
+  <div id="newUser" *ngIf="addUserPanel">
+    <h2>New users</h2>
+    <form (click)="login()">
+    <input type="text" name="userName" [(ngModel)]="userName" placeholder="User name"> <br>
+    <input type="text" name="userSurname" [(ngModel)]="userSurname" placeholder="User surname"><br>
+    <input type="email" name="Email" [(ngModel)]="userEmail" placeholder="Example@mail.com"><br>
+    <input type="password" name="userPassword" [(ngModel)]="userPassword" placeholder="Password"><br>
+    <input type="text" name="userCity" [(ngModel)]="userCity" placeholder="City"><br>
+    <button type="submit">Add user</button>
+    </form>
+  </div>
 
 </div>
 

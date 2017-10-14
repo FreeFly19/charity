@@ -19,6 +19,7 @@ export class ProductDetailComponent implements OnInit {
 
   text: string;
   data;
+  currentClass = 'product-pic';
   private tomorrow: Date;
 
   ngOnInit() {
@@ -50,4 +51,12 @@ export class ProductDetailComponent implements OnInit {
       this.bidService.bidProductList.subscribe(bid => this.bidService.bidsProduct = bid);
     });
   }
+  makeBigger() {
+    if (this.currentClass === 'product-pic') {
+      this.currentClass = 'product-pic-large';
+    } else {
+      this.currentClass = 'product-pic';
+    }
+  }
+
 }

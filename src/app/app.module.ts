@@ -20,6 +20,7 @@ import {AuthGuard} from './login/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {WelcomeComponent} from './dashboard/welcome.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { NewProductComponent } from './products/new-product/new-product.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDbsw7ifwF99TPx5wF0-gKB7iKoRynaFAU',
@@ -58,7 +59,8 @@ const routes: Routes = [
     FilterProducts,
     DashboardComponent,
     WelcomeComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    NewProductComponent
 
   ],
   imports: [
